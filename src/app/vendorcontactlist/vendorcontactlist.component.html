@@ -1,0 +1,68 @@
+
+   <h2 align="center"> Welcome To UST Vendor Contact List </h2> <br>   
+   <!-- <img src="src/assets/ust.png"> -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container input-group md-form form-sm form-1 pl-0" style="width:400px;">
+    <div class="input-group-prepend">
+      <span class="input-group-text cyan lighten-2" id="basic-text1"><i class="fa fa-search"
+          aria-hidden="true"></i></span>
+    </div>
+    <input class="form-control my-0 py-1" type="text" placeholder="Search by name/phone/service..."  [(ngModel)]="searchString" (ngModelChange)="search(searchString)"aria-label="Search">
+   <button (click)="search(searchString)" class="btn-info">Search</button>
+  </div>
+
+<br/>
+   <table class="table table-hover">
+     
+        <thead>
+                <li>
+                        <button class="btn btn-info"  (click)="logout()">
+                            Logout
+                          </button><br>
+                          <br>
+                        </li>
+
+                        
+        <tr>
+            <td><b> Vendor Id </b></td>
+            <td><b> Vendor Name </b></td>
+            <td><b> Vendor Address</b></td>
+            <td><b> Vendor Location </b></td>
+            <td><b> Vendor Service </b></td>
+            <td><b> Vendor Pincode </b></td>
+            <td><b> Contact Name </b></td>
+            <td><b> Contact Department </b></td>
+            <td><b> Contact Email </b></td>
+            <td><b> Contact Phone</b></td>
+            <td colspan="2"><b> Actions </b></td> 
+        </tr>
+        </thead>
+      
+        <tbody>
+            <tr *ngFor="let vendor of vendors | async |paginate: { itemsPerPage: 2, currentPage: p }; let i = index">
+                <td>{{vendor.vId}}</td>
+                <td>{{vendor.vName}}</td>
+                <td>{{vendor.vAdd}}</td>
+                <td>{{vendor.vLoc}}</td>
+                <td>{{vendor.vService}}</td>
+                <td>{{vendor.vPin}}</td>
+                <td>{{vendor.cName}}</td>
+                <td>{{vendor.cDep}}</td>
+                <td>{{vendor.email}}</td>
+                <td>{{vendor.phone}}</td>
+
+                <td><button (click)="deleteVendor(vendor.vId)" class="btn btn-danger" style="margin-left:10px">Delete</button></td>
+                    <td><button (click)="updateVendor(vendor.vId)" class="btn btn-info" style="margin-left:10px">Update</button></td>
+                    <!-- <td><button (click)="vendorDetails(vendor.vId)" class="btn btn-info" style="margin-left:10px">Details</button></td> -->
+                
+            </tr>
+            <div>
+                <button><a [routerLink]="['/insertvendorcontact']"   class="btn btn-info" style="margin-left:10px" routerLinkActive="active">Create</a></button>
+            </div>
+        </tbody>
+        
+      </table>
+      <div style="margin-left: 250px;">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+     

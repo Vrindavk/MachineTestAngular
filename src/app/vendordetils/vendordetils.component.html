@@ -1,0 +1,44 @@
+<h2> VendorContact Details</h2>
+<hr/>
+<div *ngIf="vendor">
+        <div>
+                <label><b>Vendor Id:</b></label>{{vendor.vId}}
+            </div>
+    <div>
+        <label><b>Vendor Name:</b></label>{{vendor.vName}}
+    </div>
+    <div>
+        <label><b>Vendor Address:</b></label>{{vendor.vAdd}}
+    </div>
+    <div>
+        <label><b>Vendor Location:</b></label>{{vendor.vLoc}}
+    </div>
+    <div>
+        <label><b>Vendor Service:</b></label>{{vendor.vService}}
+    </div>
+    <div>
+        <label><b>Vendor Pincode:</b></label>{{vendor.vpin}}
+    </div>
+    <div>
+        <label><b>Contact Id:</b></label>{{vendor.cId}}
+    </div>
+    <div>
+        <label><b>Contact Name:</b></label>{{vendor.cName}}
+    </div>
+    <div>
+        <label><b>Contact Department:</b></label>{{vendor.cdep}}
+    </div>
+    <div>
+        <label><b>Contact Email:</b></label>{{vendor.email}}
+    </div>
+    <div>
+        <label><b>Contact Phone:</b></label>{{vendor.phone}}
+    </div>
+    
+</div>
+
+
+<br>
+<br>
+<button (click)="list()" class ="btn btn-primary">Back to Vendorcontact List</button>
+<br>
